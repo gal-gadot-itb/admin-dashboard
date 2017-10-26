@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -22,14 +22,27 @@
     <!-- Animation Css -->
     <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- JQuery DataTable Css -->
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
     <!-- Morris Chart Css-->
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Sweetalert Css -->
+    <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+    <style>
+
+    .prof-pic {
+        border-radius: 50%;
+    }
+    </style>
 </head>
 
 <body class="theme-red">
@@ -484,53 +497,43 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>DASHBOARD</h2>
+                <h2>USERS</h2>
             </div>
 
             <!-- Widgets -->
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="info-box bg-cyan hover-expand-effect">
                         <div class="icon">
-                            <i class="material-icons">help</i>
+                            <i class="material-icons">group</i>
                         </div>
                         <div class="content">
-                            <div class="text">REPORTS</div>
-                            <div class="number count-to" data-from="0" data-to="20" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="text">TOTAL USERS</div>
+                            <div class="number count-to" data-from="0" data-to="1000" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-light-green hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">forum</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">POIS</div>
-                            <div class="number count-to" data-from="0" data-to="68" data-speed="1000" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-orange hover-expand-effect">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">person_add</i>
                         </div>
                         <div class="content">
-                            <div class="text">USERS</div>
-                            <div class="number count-to" data-from="0" data-to="50" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="text">NEW USERS</div>
+                            <div class="number count-to" data-from="0" data-to="40" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# Widgets -->
-            <!-- Markers -->
+            
+            <!-- TABLE -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                MAP
+                                DATA USER
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -546,109 +549,223 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=svdezAlqZP2WIeKGiLW4EUnoJvnxVP7i&amp;width=100%&amp;height=600&amp;lang=tr_TR&amp;sourceType=constructor&amp;scroll=true"></script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Markers -->
-            <div class="row clearfix">
-                <!-- Visitors -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-pink">
-                            <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
-                                 data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
-                                 data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
-                                 data-fill-Color="rgba(0, 188, 212, 0)">
-                                12,10,9,6,5,6,10,5,7,5,12,13,7,12,11
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Birthdate</th>
+                                            <th>Joined Date</th>
+                                            <th>Bio</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Birthdate</th>
+                                            <th>Joined Date</th>
+                                            <th>Bio</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Fiqe Ulya</td>
+                                            <td>ashtata</td>
+                                            <td>ashtata@gmail.com</td>
+                                            <td>10/12/1995</td>
+                                            <td>8/10/2017</td>
+                                            <td>I am Fiqie</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Bimo Aryo</td>
+                                            <td>bimo_aryo</td>
+                                            <td>bimo@gmail.com</td>
+                                            <td>11/12/1995</td>
+                                            <td>9/10/2017</td>
+                                            <td>I am Bimo</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Octavianus Marcel</td>
+                                            <td>o_marcel</td>
+                                            <td>marcel@gmail.com</td>
+                                            <td>12/12/1995</td>
+                                            <td>10/10/2017</td>
+                                            <td>I am Acel</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Asanilta Fahda</td>
+                                            <td>nilta</td>
+                                            <td>nilta@gmail.com</td>
+                                            <td>16/12/1995</td>
+                                            <td>20/10/2017</td>
+                                            <td>I am Nilta</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Zulva Fachrina</td>
+                                            <td>zfachrina</td>
+                                            <td>zulva@gmail.com</td>
+                                            <td>14/12/1995</td>
+                                            <td>6/10/2017</td>
+                                            <td>I am Zulva</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Harry Potter</td>
+                                            <td>harry_potter</td>
+                                            <td>harry@gmail.com</td>
+                                            <td>10/12/1995</td>
+                                            <td>8/10/2017</td>
+                                            <td>I am a wizard</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Shinichi Kudo</td>
+                                            <td>conan</td>
+                                            <td>conan@gmail.com</td>
+                                            <td>10/12/1995</td>
+                                            <td>8/10/2017</td>
+                                            <td>I am a detective</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                User 2</td>
+                                            <td>user2</td>
+                                            <td>user2@gmail.com</td>
+                                            <td>15/4/1996</td>
+                                            <td>7/12/2017</td>
+                                            <td>I am user 2</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                John Doe</td>
+                                            <td>john_doe</td>
+                                            <td>john_doe@gmail.com</td>
+                                            <td>13/2/1994</td>
+                                            <td>7/11/2015</td>
+                                            <td>I am john doe</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Jane Doe</td>
+                                            <td>jane_doe</td>
+                                            <td>jane_doe@gmail.com</td>
+                                            <td>9/2/1997</td>
+                                            <td>7/6/2015</td>
+                                            <td>I am jane doe</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Naruto Uzumaki</td>
+                                            <td>uzumaki_naruto</td>
+                                            <td>naruto@gmail.com</td>
+                                            <td>10/1/1995</td>
+                                            <td>25/3/2014</td>
+                                            <td>I am naruto</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
+                                                Boruto Uzumaki</td>
+                                            <td>uzumaki_boruto</td>
+                                            <td>boruto@gmail.com</td>
+                                            <td>10/6/1995</td>
+                                            <td>25/7/2014</td>
+                                            <td>I am boruto</td>
+                                            <td>
+                                                <button type="button" class="btn bg-blue waves-effect delete-button">
+                                                <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+
+                                        
+                                    </tbody>
+                                </table>
                             </div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    TODAY
-                                    <span class="pull-right"><b>1 200</b> <small>USERS</small></span>
-                                </li>
-                                <li>
-                                    YESTERDAY
-                                    <span class="pull-right"><b>3 872</b> <small>USERS</small></span>
-                                </li>
-                                <li>
-                                    LAST WEEK
-                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
-                <!-- #END# Visitors -->
-                <!-- Latest Social Trends -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-cyan">
-                            <div class="m-b--35 font-bold">LATEST SOCIAL TRENDS</div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    #socialtrends
-                                    <span class="pull-right">
-                                        <i class="material-icons">trending_up</i>
-                                    </span>
-                                </li>
-                                <li>
-                                    #materialdesign
-                                    <span class="pull-right">
-                                        <i class="material-icons">trending_up</i>
-                                    </span>
-                                </li>
-                                <li>#adminbsb</li>
-                                <li>#freeadmintemplate</li>
-                                <li>#bootstraptemplate</li>
-                                <li>
-                                    #freehtmltemplate
-                                    <span class="pull-right">
-                                        <i class="material-icons">trending_up</i>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Latest Social Trends -->
-                <!-- Answered Tickets -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-teal">
-                            <div class="font-bold m-b--35">REPORTS</div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    TODAY
-                                    <span class="pull-right"><b>12</b> <small>REPORTS</small></span>
-                                </li>
-                                <li>
-                                    YESTERDAY
-                                    <span class="pull-right"><b>15</b> <small>REPORTS</small></span>
-                                </li>
-                                <li>
-                                    LAST WEEK
-                                    <span class="pull-right"><b>90</b> <small>REPORTS</small></span>
-                                </li>
-                                <li>
-                                    LAST MONTH
-                                    <span class="pull-right"><b>342</b> <small>REPORTS</small></span>
-                                </li>
-                                <li>
-                                    LAST YEAR
-                                    <span class="pull-right"><b>4 225</b> <small>REPORTS</small></span>
-                                </li>
-                                <li>
-                                    ALL
-                                    <span class="pull-right"><b>8 752</b> <small>TICKETS</small></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Answered Tickets -->
             </div>
+            <!-- #END# TABLE -->
+            
 
            
         </div>
@@ -669,29 +786,26 @@
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
+    <!-- SweetAlert Plugin Js -->
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
+
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
-    <!-- Morris Plugin Js -->
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/morrisjs/morris.js"></script>
-
-    <!-- ChartJs -->
-    <script src="plugins/chartjs/Chart.bundle.js"></script>
-
-    <!-- Flot Charts Plugin Js -->
-    <script src="plugins/flot-charts/jquery.flot.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
-    <script src="js/pages/index.js"></script>
+    <script src="js/art_script.js"></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
