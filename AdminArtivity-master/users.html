@@ -37,6 +37,10 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 
+	<!-- Angular Js -->
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	
+	
     <style>
 
     .prof-pic {
@@ -549,8 +553,8 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <div class="table-responsive" ng-app="myApp" >
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" ng-controller="usersController">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -589,165 +593,16 @@
                                                 </button>
                                             </td>
                                         </tr>
-                                        <tr>
+										{{users}}
+                                        <tr ng-repeat="user in users">
                                             <td>
                                                 <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Bimo Aryo</td>
-                                            <td>bimo_aryo</td>
-                                            <td>bimo@gmail.com</td>
-                                            <td>11/12/1995</td>
-                                            <td>9/10/2017</td>
-                                            <td>I am Bimo</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Octavianus Marcel</td>
-                                            <td>o_marcel</td>
-                                            <td>marcel@gmail.com</td>
-                                            <td>12/12/1995</td>
-                                            <td>10/10/2017</td>
-                                            <td>I am Acel</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Asanilta Fahda</td>
-                                            <td>nilta</td>
-                                            <td>nilta@gmail.com</td>
-                                            <td>16/12/1995</td>
-                                            <td>20/10/2017</td>
-                                            <td>I am Nilta</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Zulva Fachrina</td>
-                                            <td>zfachrina</td>
-                                            <td>zulva@gmail.com</td>
-                                            <td>14/12/1995</td>
-                                            <td>6/10/2017</td>
-                                            <td>I am Zulva</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Harry Potter</td>
-                                            <td>harry_potter</td>
-                                            <td>harry@gmail.com</td>
-                                            <td>10/12/1995</td>
-                                            <td>8/10/2017</td>
-                                            <td>I am a wizard</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Shinichi Kudo</td>
-                                            <td>conan</td>
-                                            <td>conan@gmail.com</td>
-                                            <td>10/12/1995</td>
-                                            <td>8/10/2017</td>
-                                            <td>I am a detective</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                User 2</td>
-                                            <td>user2</td>
-                                            <td>user2@gmail.com</td>
-                                            <td>15/4/1996</td>
-                                            <td>7/12/2017</td>
-                                            <td>I am user 2</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                John Doe</td>
-                                            <td>john_doe</td>
-                                            <td>john_doe@gmail.com</td>
-                                            <td>13/2/1994</td>
-                                            <td>7/11/2015</td>
-                                            <td>I am john doe</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Jane Doe</td>
-                                            <td>jane_doe</td>
-                                            <td>jane_doe@gmail.com</td>
-                                            <td>9/2/1997</td>
-                                            <td>7/6/2015</td>
-                                            <td>I am jane doe</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Naruto Uzumaki</td>
-                                            <td>uzumaki_naruto</td>
-                                            <td>naruto@gmail.com</td>
-                                            <td>10/1/1995</td>
-                                            <td>25/3/2014</td>
-                                            <td>I am naruto</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Boruto Uzumaki</td>
-                                            <td>uzumaki_boruto</td>
-                                            <td>boruto@gmail.com</td>
-                                            <td>10/6/1995</td>
-                                            <td>25/7/2014</td>
-                                            <td>I am boruto</td>
+                                                {{user.name}}</td>
+                                            <td>{{user.username}}</td>
+                                            <td>{{user.email}}</td>
+                                            <td>{{user.birthdate}}</td>
+                                            <td>{{user.date}}</td>
+                                            <td>{{user.bio}}</td>
                                             <td>
                                                 <button type="button" class="btn bg-blue waves-effect delete-button">
                                                 <i class="material-icons">delete</i>
@@ -771,6 +626,8 @@
         </div>
     </section>
 
+	
+	
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -792,6 +649,58 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
+	<!-- Firebase Database -->
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+	
+	<script>
+	// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBLlt7PF32gEUpPrqmXFCRVsYMbhW8I8uM",
+			authDomain: "artivity-7e3c4.firebaseapp.com",
+			databaseURL: "https://artivity-7e3c4.firebaseio.com",
+			projectId: "artivity-7e3c4",
+			storageBucket: "artivity-7e3c4.appspot.com",
+			messagingSenderId: "506091264868"
+		};
+		firebase.initializeApp(config);
+		// Get a reference to the database service
+		var database = firebase.database();
+	</script>	
+	
+	<script>	
+		var app = angular.module('myApp',[]);  
+		function getUsers(callback)
+		{
+			var users;
+			firebase.database().ref('/users').once('value').then(function(snapshot) {
+				/*snapshot.forEach(function(childSnapshot) {
+					var childKey = childSnapshot.key;
+					var childData = childSnapshot.val();
+					// ...
+				});*/
+				console.log(snapshot.val());
+				users = snapshot.val();
+				callback(users);
+			});
+
+		}
+		app.controller("usersController", ['$scope', function ($scope) {
+			var a = 'test'
+			getUsers(function(users) {
+				$scope.users =users;
+				console.log(users);
+				a = users;
+				console.log(a);
+			});
+			console.log(a);
+		}]);
+		
+	</script>
+	
+	
+	
     <!-- Jquery DataTable Plugin Js -->
     <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
