@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="artivity">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">z
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Users | Artivity Admin Dashboard</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -37,10 +37,10 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 
-	<!-- Angular Js -->
-	<script type="text/javascript" src="js/angular.min.js"></script>
-	
-	
+    <!-- Angular Js -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    
+    
     <style>
 
     .prof-pic {
@@ -49,7 +49,7 @@
     </style>
 </head>
 
-<body class="theme-red">
+<body class="theme-red" ng-controller="UsersController">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -553,8 +553,8 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <div class="table-responsive" ng-app="myApp" >
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" ng-controller="usersController">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -578,26 +578,11 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                Fiqe Ulya</td>
-                                            <td>ashtata</td>
-                                            <td>ashtata@gmail.com</td>
-                                            <td>10/12/1995</td>
-                                            <td>8/10/2017</td>
-                                            <td>I am Fiqie</td>
-                                            <td>
-                                                <button type="button" class="btn bg-blue waves-effect delete-button">
-                                                <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-										{{users}}
                                         <tr ng-repeat="user in users">
                                             <td>
                                                 <img src="images/user.png" width="32" height="32" alt="User" class="prof-pic"/>
-                                                {{user.name}}</td>
+                                                {{user.name}}
+                                            </td>
                                             <td>{{user.username}}</td>
                                             <td>{{user.email}}</td>
                                             <td>{{user.birthdate}}</td>
@@ -609,9 +594,6 @@
                                                 </button>
                                             </td>
                                         </tr>
-
-
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -620,14 +602,9 @@
                 </div>
             </div>
             <!-- #END# TABLE -->
-            
-
-           
         </div>
     </section>
-
-	
-	
+    
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -649,58 +626,16 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
-	<!-- Firebase Database -->
-	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-	
-	<script>
-	// Initialize Firebase
-		var config = {
-			apiKey: "AIzaSyBLlt7PF32gEUpPrqmXFCRVsYMbhW8I8uM",
-			authDomain: "artivity-7e3c4.firebaseapp.com",
-			databaseURL: "https://artivity-7e3c4.firebaseio.com",
-			projectId: "artivity-7e3c4",
-			storageBucket: "artivity-7e3c4.appspot.com",
-			messagingSenderId: "506091264868"
-		};
-		firebase.initializeApp(config);
-		// Get a reference to the database service
-		var database = firebase.database();
-	</script>	
-	
-	<script>	
-		var app = angular.module('myApp',[]);  
-		function getUsers(callback)
-		{
-			var users;
-			firebase.database().ref('/users').once('value').then(function(snapshot) {
-				/*snapshot.forEach(function(childSnapshot) {
-					var childKey = childSnapshot.key;
-					var childData = childSnapshot.val();
-					// ...
-				});*/
-				console.log(snapshot.val());
-				users = snapshot.val();
-				callback(users);
-			});
-
-		}
-		app.controller("usersController", ['$scope', function ($scope) {
-			var a = 'test'
-			getUsers(function(users) {
-				$scope.users =users;
-				console.log(users);
-				a = users;
-				console.log(a);
-			});
-			console.log(a);
-		}]);
-		
-	</script>
-	
-	
-	
+    <!-- Firebase Database -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    
+    <script src="js/pages/firebase.js"></script>
+    <script src="js/pages/app.js"></script>
+    <script src="js/pages/users-controller.js"></script>
+    <script src="js/pages/users-service.js"></script>
+    
     <!-- Jquery DataTable Plugin Js -->
     <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>

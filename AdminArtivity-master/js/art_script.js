@@ -1,7 +1,11 @@
 $(function () {
-    $('.js-basic-example').DataTable({
-        responsive: true
-    });
+    setTimeout(function () {
+        $('.js-basic-example').DataTable({
+            responsive: true
+        });
+        $('.count-to').countTo();
+    }, 1000);
+
 
     //Exportable table
     $('.js-exportable').DataTable({
@@ -12,7 +16,6 @@ $(function () {
         ]
     });
 
-    $('.count-to').countTo();
 
     $('.delete-button').on('click', function () {
             swal({
@@ -28,8 +31,8 @@ $(function () {
         });
     });
 
-    $('#gallery').lightGallery({
-        thumbnail: true,
-        selector: '.image'
-    });
+    // $('#gallery').lightGallery({
+    //     thumbnail: true,
+    //     selector: '.image'
+    // });
 });
